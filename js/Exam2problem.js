@@ -1,7 +1,6 @@
 //Menu
 function MenuChoice()
 {
-    
     if (document.getElementById("menu").value == "Get category list")
     {
         document.getElementById("section1").style.visibility = "visible";
