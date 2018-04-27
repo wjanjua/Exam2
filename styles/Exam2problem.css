@@ -1,8 +1,8 @@
-section.section1 {visibility: hidden;position:relative;width:600px;position: absolute;}
-section.section2 {visibility: hidden;position:relative;width:600px;position: absolute;}
-section.section3 {visibility: hidden;position:relative;width:600px;position: absolute;}
-section.section4 {visibility: hidden;position:relative;width:600px;position: absolute;}
-section.section5 {visibility: hidden;position:relative;width:600px;position: absolute;}
+section.section1 {visibility: hidden;position:absolute;width:600px;}
+section.section2 {visibility: hidden;position:absolute;width:600px;}
+section.section3 {visibility: hidden;position:absolute;width:600px;}
+section.section4 {visibility: hidden;position:absolute;width:600px;}
+section.section5 {visibility: hidden;position:absolute;width:600px;}
 
 h2{font-size: 1.5em}
 h3{font-size: 1.5em}
