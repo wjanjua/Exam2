@@ -187,7 +187,6 @@ function Deletecategoryid()
     
     //Start AJAX request
     objRequest.open("GET",url,true);
-    objRequest.setRequestHeader("Content-type","application/x-www-form-urlencoded");
     objRequest.send();
 }
 
