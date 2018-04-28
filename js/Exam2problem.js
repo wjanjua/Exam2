@@ -68,6 +68,18 @@ function Generatecategorylist()
     }
     
     objRequest.open("GET",url,true);
-    objRequest.send();
+    objRequest.send();   
+}
+
+function GenerateOutput(result)
+{
+    var count = 0;
+    var displaytext = "";
     
+    for (count = 0; count <result.GetAllCategoriesResult.length; count++)
+    {
+        displaytext += result.GetAllCategoriesResult[count].CID + "," + result.GetAllCategoriesResult[count].CName + "," + result.GetAllCategoriesResult[count].CDescription + "<br>";   
+    }
+    
+    document.getElementById("categorylist").innerHTML = displaytext;
 }
