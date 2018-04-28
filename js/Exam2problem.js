@@ -85,3 +85,44 @@ function GenerateOutput(result)
     document.getElementById("categorylist").innerHTML = maketable;
     document.getElementById("categorylist2").innerHTML = displaytext;
 }
+
+//Add product category to list
+function Addproductcategory()
+{
+    var objRequest = new XMLHttpRequest();
+    var url = "https://student.business.uab.edu/jsonwebservice/service1.svc/CreateCategory";
+    
+    //Collect product data from section 2
+    var productcategoryname = document.getElementById("productname").value;
+    var productcategorydescription = document.getElementById("productdescription").value;
+    
+    //Parameter string
+    var newproductcategory = '{"CName":"'+productname+'","CDescription":"'+productdescription+'"}';
+    
+    //Checking AJAX operation return
+    objRequest.onreadystatechange = function()
+    {
+        if (objRequest.readyState == 4 && objRequest.status == 200)
+        {
+            var result = JSON.parse(objRequest.responseText);
+            OperationResult(result);
+        }      
+    }
+    
+    //Start AJAX request
+    objRequest.open("POST", url, true);
+    objRequest.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    objRequest.send(newproductcategory);
+}
+
+function OperationResult(output)
+{
+    if (output.WasSuccessful == 1)
+    {
+        document.getElementById("result2").innerHTML = "The operation was successful!"
+    }
+    else
+    {
+        document.getElementById("result2").innerHTML = "The operation was not succesful!" + "<br>" + output.Exception;
+    }
+}
