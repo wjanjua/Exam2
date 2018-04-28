@@ -172,10 +172,8 @@ function OperationResult2(output)
 function Deletecategoryid()
 {
     var objRequest = new XMLHttpRequest();
-    var url = "https://student.business.uab.edu/jsonwebservice/service1.svc/deleteCategory/categoryID";
-    
-    //Collect data from section 4
-    var categoryidthatwillbedeleted = document.getElementById("deletethiscategoryid").value;
+    var url = "https://student.business.uab.edu/jsonwebservice/service1.svc/deleteCategory/";
+    url += document.getElementById("deletethiscategoryid").value;
     
     //Checking AJAX operation return
     objRequest.onreadystatechange = function()
@@ -189,6 +187,7 @@ function Deletecategoryid()
     
     //Start AJAX request
     objRequest.open("GET",url,true);
+    objRequest.setRequestHeader("Content-type","application/x-www-form-urlencoded");
     objRequest.send();
 }
 
