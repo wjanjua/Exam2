@@ -50,3 +50,24 @@ function MenuChoice()
         document.getElementById("section5").style.visibility = "hidden";
     }
 }
+
+//Section 1    
+function Generatecategorylist()
+{
+    var objRequest = new XMLHttpRequest();
+    var url = "https://student.business.uab.edu/jsonwebservice/service1.svc/getAllCategories";
+    
+    objRequest.onreadystatechange = function()
+    {
+        if (objRequest.readyState == 4 && objRequest.status == 200)
+        {
+            var output = JSON.parse(objRequest.responseText);
+            GenerateOutput(output);
+        }
+        
+    }
+    
+    objRequest.open("GET",url,true);
+    objRequest.send();
+    
+}
