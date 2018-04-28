@@ -145,8 +145,8 @@ function Changeproductcategorydescription()
     {
         if (objRequest.readyState == 4 && objRequest.status == 200)
         {
-            var result = JSON.parse(objRequest.responseText);
-            OperationResult(result);
+            var result3 = JSON.parse(objRequest.responseText);
+            OperationResult2(result3);
         }      
     }
     
