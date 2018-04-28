@@ -167,3 +167,39 @@ function OperationResult2(output)
         document.getElementById("result3").innerHTML = "The operation was not succesful!" + "<br>" + output.Exception;
     }
 }
+
+//Delete existing category
+function Deletecategoryid()
+{
+    var objRequest = new XMLHttpRequest();
+    var url = "https://student.business.uab.edu/jsonwebservice/service1.svc/deleteCategory/categoryID";
+    
+    //Collect data from section 4
+    var categoryidthatwillbedeleted = document.getElementById("deletethiscategoryid").value;
+    
+    //Checking AJAX operation return
+    objRequest.onreadystatechange = function()
+    {
+        if (objRequest.readyState == 4 && objRequest.status == 200)
+        {
+            var result4 = JSON.parse(objRequest.responseText);
+            OperationResult3(result4);
+        }
+    }
+    
+    //Start AJAX request
+    objRequest.open("GET",url,true);
+    objRequest.send();
+}
+
+function OperationResult3(output)
+{
+    if (output.WasSuccessful == 1)
+    {
+        document.getElementById("result4").innerHTML = "The operation was successful!"
+    }
+    else
+    {
+        document.getElementById("result4").innerHTML = "The operation was not succesful!" + "<br>" + output.Exception;
+    }
+}
