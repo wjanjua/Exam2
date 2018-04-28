@@ -75,11 +75,13 @@ function GenerateOutput(result)
 {
     var count = 0;
     var displaytext = "";
+    var maketable = "<table><tr><th>Category ID,</th><th>Category Name,</th><th>Category Description</th><tr>";
     
     for (count = 0; count <result.GetAllCategoriesResult.length; count++)
     {
-        displaytext += result.GetAllCategoriesResult[count].CID + "," + result.GetAllCategoriesResult[count].CName + "," + result.GetAllCategoriesResult[count].CDescription + "<br>";   
+        displaytext += + result.GetAllCategoriesResult[count].CID + "," + " " + result.GetAllCategoriesResult[count].CName + "," + " " + result.GetAllCategoriesResult[count].CDescription + "<br>";   
     }
     
-    document.getElementById("categorylist").innerHTML = displaytext;
+    document.getElementById("categorylist").innerHTML = maketable;
+    document.getElementById("categorylist2").innerHTML = displaytext;
 }
