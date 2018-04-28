@@ -126,3 +126,44 @@ function OperationResult(output)
         document.getElementById("result2").innerHTML = "The operation was not succesful!" + "<br>" + output.Exception;
     }
 }
+
+//Update product category description
+function Changeproductcategorydescription()
+{
+    var objRequest = new XMLHttpRequest();
+    var url = "https://student.business.uab.edu/jsonwebservice/service1.svc/updateCatDescription";
+    
+    //Collect product data from section 3
+    var currentcategoryid = document.getElementById("existingcategoryid").value;
+    var changedproductdescription = document.getElementById("newnewproductdescription").value;
+    
+    //Parameter string
+    var newproductdescription = '{"CID":"'+currentcategoryid+'","CDescription":"'+changedproductdescription+'"}';
+    
+    //Checking AJAX operation return
+    objRequest.onreadystatechange = function()
+    {
+        if (objRequest.readyState == 4 && objRequest.status == 200)
+        {
+            var result = JSON.parse(objRequest.responseText);
+            OperationResult(result);
+        }      
+    }
+    
+    //Start AJAX request
+    objRequest.open("POST", url, true);
+    objRequest.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    objRequest.send(newproductdescription);
+}
+
+function OperationResult2(output)
+{
+    if (output.WasSuccessful == 1)
+    {
+        document.getElementById("result3").innerHTML = "The operation was successful!"
+    }
+    else
+    {
+        document.getElementById("result3").innerHTML = "The operation was not succesful!" + "<br>" + output.Exception;
+    }
+}
