@@ -97,7 +97,7 @@ function Addproductcategory()
     var productcategorydescription = document.getElementById("productdescription").value;
     
     //Parameter string
-    var newproductcategory = '{"CName":"'+productname+'","CDescription":"'+productdescription+'"}';
+    var newproductcategory = '{"CName":"'+productcategoryname+'","CDescription":"'+productcategorydescription+'"}';
     
     //Checking AJAX operation return
     objRequest.onreadystatechange = function()
